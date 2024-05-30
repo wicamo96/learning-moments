@@ -1,0 +1,38 @@
+:root {
+    --col-0: #1F2041;
+    --col-1: #4B3F72;
+    --col-2: #FFC857;
+    --col-3: #119DA4;
+    --col-4: #19647E;
+}
+
+.pageBody {
+    background: var(--col-4);
+    min-height: 100vh;
+}
+
+.postBody {
+    display: flex;
+    justify-content: center;
+}
+
+.postCard {
+    background: var(--col-3);
+    width: 100rem;
+    margin: 1em;
+}
+
+.postCardBody {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.postCardTitle {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1em;
+}
