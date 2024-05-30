@@ -6,9 +6,16 @@
     --col-4: #19647E;
 }
 
+.filterPostsDropdown {
+    margin-left: 5%;
+}
+
 .pageBody {
     background: var(--col-4);
     min-height: 100vh;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 .postBody {
@@ -18,7 +25,7 @@
 
 .postCard {
     background: var(--col-3);
-    width: 100rem;
+    width: 90%;
     margin: 1em;
 }
 
