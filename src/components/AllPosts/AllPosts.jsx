@@ -1,14 +1,15 @@
 import "./AllPosts.css"
 import { useEffect, useState } from "react"
 import { getAllPosts, getAndSetPostTopics } from "../../services/postsService.jsx"
-import { Card, Dropdown } from "react-bootstrap"
 import { FilterAllPosts } from "../FilterPosts/FilterAllPosts.jsx"
 import { FilterPosts } from "../FilterPosts/FilterPosts.jsx"
+import { FilterAndSearchBar } from "../FilterPosts/FilterAndSearchBar.jsx"
 
 export const AllPosts = () => {
     const [allPosts, setAllPosts] = useState([])
     const [displayedPosts, setDisplayedPosts] = useState([])
     const [topics, setTopics] = useState([])
+    const [searchTerm, setSearchTerm] = useState("")
 
     const getAndSetPosts = () => {
         getAllPosts().then(postArray => {
@@ -21,10 +22,15 @@ export const AllPosts = () => {
         })
     }
 
-    // const handleFilterTopics = (event) => {
-    //     const filteredPosts = topics.filter(topic => topic.name === event.target.name)
-    //     setDisplayedPosts(filteredPosts)
-    // }
+    const handleFilterTopics = (event) => {
+        if (event.target.innerHTML === "All") {
+            setDisplayedPosts(allPosts)
+        } else {
+            const filteredPosts = allPosts.filter(post => post.topic.name === event.target.innerHTML)
+            setDisplayedPosts(filteredPosts)
+        }
+    }
+
     
     useEffect(() => {
         getAndSetPosts()
@@ -32,19 +38,17 @@ export const AllPosts = () => {
     }, [])
 
 
+    useEffect(() => {
+        const search = allPosts.filter(post => post.topic.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        setDisplayedPosts(search)
+    }, [searchTerm])
+
+
     return (
         <article className="pageBody">
-            <Dropdown className="filterPostsDropdown">
-                <Dropdown.Toggle id="filterDropdown">Filter Posts</Dropdown.Toggle>
-                <Dropdown.Menu>
-                    <Dropdown.Item key={0}>All</Dropdown.Item>
-                    {topics.map((topic) => {
-                        return (
-                            <Dropdown.Item key={topic.id}>{topic.name}</Dropdown.Item>
-                        )
-                    })}
-                </Dropdown.Menu>
-            </Dropdown>
+            <>
+                <FilterAndSearchBar handleFilterTopics={handleFilterTopics} topics={topics} setSearchTerm={setSearchTerm}/>
+            </>
             <section className="postBody">
                 {displayedPosts.length === 0 ? <FilterAllPosts allPosts={allPosts}/> : <FilterPosts displayedPosts={displayedPosts}/>}
             </section>
