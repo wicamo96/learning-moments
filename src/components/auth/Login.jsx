@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-// import "./Login.css"
+import { Link, useNavigate } from "react-router-dom"
+import {  } from "react-router-dom"
+import "./Login.css"
 import { getUserByEmail } from "../../services/userService"
+import { Button } from "react-bootstrap"
 
 export const Login = () => {
   const [email, set] = useState("")
@@ -29,35 +30,38 @@ export const Login = () => {
   }
 
   return (
-    <main className="auth-container">
-      <section>
-        <form className="auth-form" onSubmit={handleLogin}>
-          <h1 className="header">Learning Moments</h1>
-          <h2>Please sign in</h2>
-          <fieldset className="auth-fieldset">
-            <div>
-              <input
-                type="email"
-                value={email}
-                className="auth-form-input"
-                onChange={(evt) => set(evt.target.value)}
-                placeholder="Email address"
-                required
-                autoFocus
-              />
-            </div>
-          </fieldset>
-          <fieldset className="auth-fieldset">
-            <div>
-              <button type="submit">Sign in</button>
-            </div>
-          </fieldset>
-        </form>
-      </section>
-      <section className="register-link">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
-    </main>
+    <article className="pageBody">      
+      <main className="auth-container">
+        <section>
+          <form className="auth-form" onSubmit={handleLogin}>
+            <h1 className="header textColor">Learning Moments</h1>
+            <h2 className="textColor">Please sign in</h2>
+            
+            <fieldset className="auth-fieldset">
+              <div>
+                <input
+                  type="email"
+                  value={email}
+                  className="auth-form-input"
+                  onChange={(evt) => set(evt.target.value)}
+                  placeholder="Email address"
+                  required
+                  autoFocus
+                />
+              </div>
+            </fieldset>
+            <fieldset className="auth-fieldset">
+              <div>
+                <Button type="submit" variant="light colorOverride">Sign in</Button>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <section className="register-link">
+          <Link to="/register" className="textColor">Not a member yet?</Link>
+        </section>
+      </main>
+    </article>
   )
 }
 

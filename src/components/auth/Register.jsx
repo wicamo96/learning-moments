@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { createUser, getUserByEmail } from "../../services/userService"
+import { Button } from "react-bootstrap"
 
 export const Register = (props) => {
   const [user, setUser] = useState({
@@ -52,53 +53,55 @@ export const Register = (props) => {
   }
 
   return (
-    <main className="auth-container">
-      <form className="auth-form" onSubmit={handleRegister}>
-        <h1 className="header">Learning Moments</h1>
-        <h2>Please Register</h2>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateUser}
-              type="text"
-              id="name"
-              className="auth-form-input"
-              placeholder="Enter your name"
-              required
-              autoFocus
-            />
-          </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateUser}
-              type="email"
-              id="email"
-              className="auth-form-input"
-              placeholder="Email address"
-              required
-            />
-          </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateUser}
-              type="number"
-              id="cohort"
-              className="auth-form-input"
-              placeholder="Cohort #"
-              required
-            />
-          </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <button type="submit">Register</button>
-          </div>
-        </fieldset>
-      </form>
-    </main>
+    <article className="pageBody">
+      <main className="auth-container">
+        <form className="auth-form" onSubmit={handleRegister}>
+          <h1 className="header textColor">Learning Moments</h1>
+          <h2 className="textColor">Please Register</h2>
+          <fieldset className="auth-fieldset">
+            <div>
+              <input
+                onChange={updateUser}
+                type="text"
+                id="name"
+                className="auth-form-input"
+                placeholder="Enter your name"
+                required
+                autoFocus
+              />
+            </div>
+          </fieldset>
+          <fieldset className="auth-fieldset">
+            <div>
+              <input
+                onChange={updateUser}
+                type="email"
+                id="email"
+                className="auth-form-input"
+                placeholder="Email address"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset className="auth-fieldset">
+            <div>
+              <input
+                onChange={updateUser}
+                type="number"
+                id="cohort"
+                className="auth-form-input"
+                placeholder="Cohort #"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset className="auth-fieldset">
+            <div>
+              <Button type="submit" variant="light colorOverride">Register</Button>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+    </article>
   )
 }

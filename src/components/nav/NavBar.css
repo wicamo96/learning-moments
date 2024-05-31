@@ -1,0 +1,19 @@
+:root {
+    --col-0: #1F2041;
+    --col-1: #4B3F72;
+    --col-2: #FFC857;
+    --col-3: #119DA4;
+    --col-4: #19647E;
+}
+
+.navColor {
+    background-color: var(--col-0);
+}
+
+.navTextColor {
+    color: white;
+}
+
+.navTextColor:hover {
+    color: var(--col-3);
+}

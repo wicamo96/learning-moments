@@ -1,12 +1,21 @@
+:root {
+  --col-0: #1F2041;
+  --col-1: #4B3F72;
+  --col-2: #FFC857;
+  --col-3: #119DA4;
+  --col-4: #19647E;
+}
+
 .auth-container {
   border: 1px solid gray;
+  background-color: var(--col-3);
   margin: 3rem 15rem;
   padding: 2rem;
   border-radius: 1rem;
 }
 
-.header {
-  font-size: 2rem;
+.auth-fieldset {
+  margin: 0.25rem 0rem;
 }
 
 .auth-form {
@@ -19,10 +28,14 @@
   padding: 0.25rem;
 }
 
+.header {
+  font-size: 2rem;
+}
+
 .register-link {
   text-align: center;
 }
 
-.auth-fieldset {
-  margin: 0.25rem 0rem;
+.textColor {
+  color: white;
 }
